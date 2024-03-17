@@ -14,6 +14,8 @@ create table if not exists user
     gender       tinyint                                null comment '性别',
     userRole     varchar(256) default 'user'            not null comment '用户角色：user / admin',
     userPassword varchar(512)                           not null comment '密码',
+    accessKey    varchar(512) not null  comment 'accessKey',
+    secretKey    varchar(512) not null  comment 'secretKey',
     createTime   datetime     default CURRENT_TIMESTAMP not null comment '创建时间',
     updateTime   datetime     default CURRENT_TIMESTAMP not null on update CURRENT_TIMESTAMP comment '更新时间',
     isDelete     tinyint      default 0                 not null comment '是否删除',
@@ -50,6 +52,7 @@ create table if not exists zsmx_api.`interface_info`
     `name` varchar(256) not null comment '名称',
     `description` varchar(256) null comment '描述',
     `url` varchar(512) not null comment '接口地址',
+    `requestParams` text null comment '请求参数',
     `requestHeader` text null comment '请求头',
     `responseHeader` text null comment '响应头',
     `status` int default 0 not null comment '接口状态（0-关闭，1-开启）',
@@ -80,3 +83,4 @@ insert into zsmx_api.`interface_info` (`name`, `description`, `url`, `requestHea
 insert into zsmx_api.`interface_info` (`name`, `description`, `url`, `requestHeader`, `responseHeader`, `status`, `method`, `userId`) values ('白思', '汪懿轩', 'www.hugo-bradtke.co', '于立轩', '毛楷瑞', 0, '罗俊驰', 3219);
 insert into zsmx_api.`interface_info` (`name`, `description`, `url`, `requestHeader`, `responseHeader`, `status`, `method`, `userId`) values ('李琪', '谭健雄', 'www.gerry-dicki.biz', '龙果', '吴晟睿', 0, '马昊焱', 61151986);
 insert into zsmx_api.`interface_info` (`name`, `description`, `url`, `requestHeader`, `responseHeader`, `status`, `method`, `userId`) values ('吴思', '吴志泽', 'www.kareem-feest.io', '汪黎昕', '赵瑾瑜', 0, '邱致远', 6);
+1,老鱼皮,yupi,,,admin,b0dd3697a192885d7c055db46155b26a,2023-04-30 22:45:10,2023-05-14 11:37:02,0
